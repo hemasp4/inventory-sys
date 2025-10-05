@@ -6,11 +6,14 @@
   <title>Inventory Management</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/10951/10951884.png">
+
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <img src="https://cdn-icons-png.flaticon.com/128/11167/11167560.png" alt="logo" class="bg-white w-10 h=10 rounded-lg">
     <div class="text-xl font-bold">Inventory App</div>
     <div class="space-x-4">
       <a href="/products" class="hover:text-gray-300">Products</a>
