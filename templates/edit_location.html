@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Add New Location</h1>
+
+  <form method="POST" action="{{ url_for('main.edit_location', location_id=location.location_id) }}" class="space-y-4">
+    {{ form.hidden_tag() }}
+    <div class="mb-2">
+        {{ form.location_id.label }}<br>
+        {{ form.location_id(class="w-full border p-2 rounded") }}
+    </div>
+    <div class="mb-2">
+        {{ form.name.label }}<br>
+        {{ form.name(class="w-full border p-2 rounded") }}
+    </div>
+    <div class="mb-2">
+        {{ form.description.label }}<br>
+        {{ form.description(class="w-full border p-2 rounded") }}
+    </div>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update Location</button>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-2xl font-semibold mb-4">Inventory Report</h2>
+
+<div class="bg-white rounded shadow overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium uppercase">Product</th>
+        <th class="px-6 py-3 text-left text-xs font-medium uppercase">Warehouse</th>
+        <th class="px-6 py-3 text-left text-xs font-medium uppercase">Quantity</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      {% for row in report %}
+      <tr class="{% if row.qty < 5 %}bg-red-100{% elif row.qty < 10 %}bg-yellow-100{% else %}bg-green-100{% endif %}">
+        <td class="px-6 py-4">{{ row.product }}</td>
+        <td class="px-6 py-4">{{ row.location }}</td>
+        <td class="px-6 py-4">{{ row.qty }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

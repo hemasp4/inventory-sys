@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <div class="text-xl font-bold">Inventory App</div>
+    <div class="space-x-4">
+      <a href="/products" class="hover:text-gray-300">Products</a>
+      <a href="/locations" class="hover:text-gray-300">Locations</a>
+      <a href="/movements" class="hover:text-gray-300">Movements</a>
+      <a href="/reports" class="hover:text-gray-300">Reports</a>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="flex-1 container mx-auto p-6">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>
