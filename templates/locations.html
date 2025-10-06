@@ -42,9 +42,9 @@
                     <td class="px-4 py-2 border-b">{{ location.location_id }}</td>
                     <td class="px-4 py-2 border-b">{{ location.name }}</td>
                     <td class="px-4 py-2 border-b">{{ location.description }}</td>
-                    <td class="px-4 py-2 border-b space-x-2">
-                        <a href="{{ url_for('main.edit_location', location_id=location.location_id) }}" class="text-blue-600 hover:underline">Edit</a>
-                        <a href="{{ url_for('main.delete_location', location_id=location.location_id) }}" class="text-red-600 hover:underline">Delete</a>
+                    <td class="px-6 py-4 border-b space-x-2">
+                        <a href="{{ url_for('main.edit_location', location_id=location.location_id) }}" class="text-white px-4 py-2 rounded-lg bg-blue-600">Edit</a>
+                        <a href="{{ url_for('main.delete_location', location_id=location.location_id) }}" class="text-white px-4 py-2 rounded-lg bg-red-600">Delete</a>
                     </td>
                 </tr>
                 {% else %}
