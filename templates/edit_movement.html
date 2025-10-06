@@ -2,7 +2,7 @@
 {% block content %}
 <h2 class="text-2xl font-semibold mb-4">Edit Movement</h2>
 
-<div class="bg-white p-6 rounded shadow">
+<div class="bg-white p-6 rounded-lg shadow">
   <form method="POST" class="space-y-4">
     {{ form.hidden_tag() }}
 
@@ -27,6 +27,7 @@
     </div>
 
     {{ form.submit(class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700") }}
+    <a href="{{ url_for('main.movements') }}" class="ml-4 rounded px-4 py-2 bg-red-500 text-white">Back</a>
   </form>
 </div>
 {% endblock %}

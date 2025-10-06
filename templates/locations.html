@@ -3,7 +3,7 @@
 {% block title %}Locations{% endblock %}
 
 {% block content %}
-<div class=" bg-white rounded shadow p-6 mb-6">
+<div class=" bg-white rounded-lg shadow p-6 mb-6">
     <h1 class="text-3xl font-bold mb-6">Locations</h1>
     
 
@@ -26,7 +26,7 @@
 </div>  
 
     <!-- Locations Table -->
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto rounded-lg shadow">
         <table class="min-w-full bg-white border border-gray-200">
             <thead>
                 <tr class="bg-gray-100 text-left">
@@ -43,8 +43,8 @@
                     <td class="px-4 py-2 border-b">{{ location.name }}</td>
                     <td class="px-4 py-2 border-b">{{ location.description }}</td>
                     <td class="px-4 py-2 border-b space-x-2">
-                        <a href="/edit_location/{{location.location_id}}" class="text-blue-600 hover:underline">Edit</a>
-                        <a href="/delete_location/{{location.location_id }}" class="text-red-600 hover:underline">Delete</a>
+                        <a href="{{ url_for('main.edit_location', location_id=location.location_id) }}" class="text-blue-600 hover:underline">Edit</a>
+                        <a href="{{ url_for('main.delete_location', location_id=location.location_id) }}" class="text-red-600 hover:underline">Delete</a>
                     </td>
                 </tr>
                 {% else %}

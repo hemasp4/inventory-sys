@@ -55,7 +55,7 @@ def movements():
         return redirect(url_for('main.movements'))
 
     movements = ProductMovement.query.order_by(ProductMovement.timestamp.desc()).all()
-    return render_template('movements.html', movements=movements, form=form,products=products,locations=locations)
+    return render_template('movements.html', movements=movements, form=form)
 
 # Report
 @main.route('/reports',methods=["GET","POST"])
