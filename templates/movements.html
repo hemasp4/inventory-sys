@@ -43,6 +43,7 @@
         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">To</th>
         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Qty</th>
         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Timestamp</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
       </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
@@ -54,6 +55,10 @@
         <td class="px-6 py-4">{{ move.to_loc.name if move.to_loc else '-' }}</td>
         <td class="px-6 py-4">{{ move.qty }}</td>
         <td class="px-6 py-4">{{ move.timestamp }}</td>
+        <td class="px-6 py-4">
+          <a href="{{ url_for('main.edit_movement', movement_id=move.movement_id) }}" class="text-blue-600 hover:underline">Edit</a>
+          <a href="{{ url_for('main.delete_movement', movement_id=move.movement_id) }}" class="text-red-600 hover:underline ml-4">Delete</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

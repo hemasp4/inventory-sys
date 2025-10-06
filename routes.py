@@ -116,3 +116,31 @@ def delete_location(location_id):
     db.session.commit()
     return redirect(url_for("main.locations"))
 
+@main.route('/movements/edit/<int:movement_id>', methods=["GET", "POST"])
+def edit_movement(movement_id):
+    movement = ProductMovement.query.get_or_404(movement_id)
+    form = MovementForm(obj=movement)
+    products = Product.query.all()
+    locations = Location.query.all()
+    form.product_id.choices = [(p.product_id, p.name) for p in products]
+    location_choices = [('', '---')] + [(l.location_id, l.name) for l in locations]
+    form.from_location.choices = location_choices
+    form.to_location.choices = location_choices
+
+    if form.validate_on_submit():
+        movement.product_id = form.product_id.data
+        movement.from_location = form.from_location.data or None
+        movement.to_location = form.to_location.data or None
+        movement.qty = form.qty.data
+        db.session.commit()
+        return redirect(url_for('main.movements'))
+
+    return render_template('edit_movement.html', form=form)
+
+@main.route('/movements/delete/<int:movement_id>', methods=["POST","GET"])
+def delete_movement(movement_id):
+    movement = ProductMovement.query.get_or_404(movement_id)
+    db.session.delete(movement)
+    db.session.commit()
+    return redirect(url_for('main.movements'))
+
